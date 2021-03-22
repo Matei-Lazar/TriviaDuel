@@ -28,6 +28,7 @@ android {
 
     buildFeatures {
         dataBinding true
+        viewBinding true
     }
 
     compileOptions {
@@ -52,8 +53,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     // Navigation Component dependencies
-    implementation "androidx.navigation:navigation-runtime-ktx:2.3.4"
-    implementation "androidx.navigation:navigation-fragment-ktx:2.3.4"
-    implementation "androidx.navigation:navigation-ui-ktx:2.3.4"
+    implementation "androidx.navigation:navigation-runtime-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
 }
