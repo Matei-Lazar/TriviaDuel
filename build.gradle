@@ -3,6 +3,9 @@ buildscript {
     ext.kotlin_version = "1.4.31"
     ext.nav_version = "2.3.4"
     ext.lifecycle_version = "2.3.0"
+    ext.hilt_version = '2.33-beta'
+    ext.version_moshi = "1.9.3"
+    ext.version_retrofit = "2.9.0"
 
     repositories {
         google()
@@ -14,6 +17,9 @@ buildscript {
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
         // Firebase
         classpath 'com.google.gms:google-services:4.3.5'
+        // Hilt
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
+
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
