@@ -19,21 +19,21 @@ import m.matthew.triviaduel.login.LoginViewModel
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    private val viewModel by viewModels<LoginViewModel>()
+    private val loginViewModel by viewModels<LoginViewModel>()
+    private val homeViewModel by viewModels<HomeViewModel>()
     private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-
+        binding.viewModel = homeViewModel
+        binding.lifecycleOwner = this
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeAuthenticationState()
-
-        // binding.authButton.setOnClickListener { launchSignInFlow() }
     }
 
     private fun launchSignInFlow() {
@@ -55,7 +55,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun observeAuthenticationState() {
 
-        viewModel.authenticationState.observe(viewLifecycleOwner, Observer { authenticationState ->
+        loginViewModel.authenticationState.observe(viewLifecycleOwner, Observer { authenticationState ->
             when (authenticationState) {
                 LoginViewModel.AuthenticationState.AUTHENTICATED -> {
 
