@@ -56,7 +56,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/play_button"
-            android:text="@{viewModel.triviaResponse.results.get(0).question}"/>
+            android:text="@{viewModel.decodeHtml(viewModel.triviaResponse.results.get(0).question)}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

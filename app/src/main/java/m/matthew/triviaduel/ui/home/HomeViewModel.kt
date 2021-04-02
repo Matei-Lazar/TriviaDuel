@@ -1,5 +1,7 @@
 package m.matthew.triviaduel.ui.home
 
+import android.os.Build
+import android.text.Html
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -29,6 +31,14 @@ class HomeViewModel : ViewModel() {
             } catch (e: Exception) {
                 Log.e(TAG, "Exception: ${e.message}")
             }
+        }
+    }
+
+    fun decodeHtml(string: String?): String {
+        return if (string != null) {
+            Html.fromHtml(string, Html.FROM_HTML_MODE_LEGACY).toString()
+        } else {
+            "Error"
         }
     }
 
