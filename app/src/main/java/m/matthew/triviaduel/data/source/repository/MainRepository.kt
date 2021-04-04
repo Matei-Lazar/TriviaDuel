@@ -19,7 +19,7 @@ constructor(
         private val localMapper: LocalMapper
 ) {
     suspend fun getQuestion(): Flow<DataState<List<QuestionEntity>>> = flow {
-        emit(DataState.Loading)a
+        emit(DataState.Loading)
         try {
             val response = triviaApiService.getQuestion()
             Log.i(TAG, "1 Got a question")
