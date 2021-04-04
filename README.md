@@ -17,3 +17,4 @@ Technologies used:
 - Firebase Authentication
 - Kotlin Coroutines
 - Kotlin Flow
+- MVVM / MVI Architecture
