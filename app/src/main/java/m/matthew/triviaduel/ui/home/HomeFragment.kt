@@ -13,10 +13,14 @@ import androidx.lifecycle.Observer
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.AndroidEntryPoint
 import m.matthew.triviaduel.R
+import m.matthew.triviaduel.data.model.QuestionEntity
 import m.matthew.triviaduel.databinding.FragmentHomeBinding
 import m.matthew.triviaduel.login.LoginViewModel
+import m.matthew.triviaduel.util.DataState
 
+@AndroidEntryPoint
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val loginViewModel by viewModels<LoginViewModel>()
@@ -34,6 +38,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeAuthenticationState()
+        subscribeObservers()
+        homeViewModel.setStateEvent(HomeViewModel.MainStateEvent.GetQuestionsEvent)
     }
 
     private fun launchSignInFlow() {
@@ -91,6 +97,43 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 // response.getError().getErrorCode() and handle the error.
                 Log.i(TAG, "Sign in unsuccessful ${response?.error?.errorCode}")
             }
+        }
+    }
+
+    private fun subscribeObservers() {
+        homeViewModel.dataState.observe(viewLifecycleOwner, Observer { dataState ->
+            when (dataState) {
+                is DataState.Success<List<QuestionEntity>> -> {
+                    displayProgressBar(false)
+                    appendQuestions(dataState.data)
+                }
+                is DataState.Error -> {
+                    displayProgressBar(false)
+                    displayError(dataState.exception.message)
+                }
+                is DataState.Loading -> {
+                    displayProgressBar(true)
+                }
+            }
+        })
+    }
+
+    private fun displayError(message: String?) {
+        if (message != null) {
+            binding.resultTextView.text = message
+        } else {
+            binding.resultTextView.text = "Unknown error"
+        }
+    }
+
+    private fun displayProgressBar(isDisplayed: Boolean) {
+        binding.progressBar.visibility = if (isDisplayed) View.VISIBLE else View.GONE
+    }
+
+    private fun appendQuestions(questions: List<QuestionEntity>) {
+        var string = ""
+        for (question in questions) {
+            binding.resultTextView.text = homeViewModel.decodeHtml(question.question)
         }
     }
 

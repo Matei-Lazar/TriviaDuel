@@ -1,38 +1,69 @@
 package m.matthew.triviaduel.ui.home
 
-import android.os.Build
 import android.text.Html
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import dagger.assisted.Assisted
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import m.matthew.triviaduel.data.model.TriviaResponse
-import m.matthew.triviaduel.data.source.remote.TriviaApi
+import m.matthew.triviaduel.data.model.QuestionEntity
+import m.matthew.triviaduel.data.source.repository.MainRepository
+import m.matthew.triviaduel.util.DataState
+import javax.inject.Inject
 
+@HiltViewModel
+class HomeViewModel
+    @Inject
+    constructor(
+            private val mainRepository: MainRepository
+    ) : ViewModel() {
+// vezi si chestia aia cu viewmodel si navigation graph
 
-class HomeViewModel : ViewModel() {
+    private val _dataState: MutableLiveData<DataState<List<QuestionEntity>>> = MutableLiveData()
+    val dataState: LiveData<DataState<List<QuestionEntity>>>
+        get() = _dataState
 
-    private val _triviaResponse = MutableLiveData<TriviaResponse>()
-
-    val triviaResponse: LiveData<TriviaResponse>
-        get() = _triviaResponse
-
-    init {
-        getAQuestion()
-    }
-
-    private fun getAQuestion() {
+    fun setStateEvent(mainStateEvent: MainStateEvent) {
         viewModelScope.launch {
-            try {
-                _triviaResponse.value = TriviaApi.retrofitService.getQuestion()
-                Log.i(TAG, "Success")
-            } catch (e: Exception) {
-                Log.e(TAG, "Exception: ${e.message}")
+            when (mainStateEvent) {
+                is MainStateEvent.GetQuestionsEvent -> {
+                    mainRepository.getQuestion()
+                        .onEach { dataState ->
+                            _dataState.value = dataState
+                        }
+                        .launchIn(viewModelScope)
+                }
             }
         }
     }
+
+    sealed class MainStateEvent {
+        object GetQuestionsEvent: MainStateEvent()
+    }
+
+
+
+
+//    private val _triviaResponse = MutableLiveData<TriviaResponse>()
+//
+//    val triviaResponse: LiveData<TriviaResponse>
+//        get() = _triviaResponse
+//
+//    init {
+//        getAQuestion()
+//    }
+//
+//    private fun getAQuestion() {
+//        viewModelScope.launch {
+//            try {
+//                _triviaResponse.value = TriviaApi.retrofitService.getQuestion()
+//                Log.i(TAG, "Success")
+//            } catch (e: Exception) {
+//                Log.e(TAG, "Exception: ${e.message}")
+//            }
+//        }
+//    }
 
     fun decodeHtml(string: String?): String {
         return if (string != null) {

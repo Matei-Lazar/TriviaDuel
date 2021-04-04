@@ -10,14 +10,14 @@ import retrofit2.http.GET
 
 private const val BASE_URL = "https://opentdb.com/"
 
-private val moshi = Moshi.Builder()
-    .add(KotlinJsonAdapterFactory())
-    .build()
+//private val moshi = Moshi.Builder()
+//    .add(KotlinJsonAdapterFactory())
+//    .build()
 
-private val retrofit = Retrofit.Builder()
-    .addConverterFactory(MoshiConverterFactory.create(moshi))
-    .baseUrl(BASE_URL)
-    .build()
+//private val retrofit = Retrofit.Builder()
+//    .addConverterFactory(MoshiConverterFactory.create(moshi))
+//    .baseUrl(BASE_URL)
+//    .build()
 
 interface TriviaApiService {
 
@@ -25,6 +25,6 @@ interface TriviaApiService {
     suspend fun getQuestion(): TriviaResponse
 }
 
-object TriviaApi {
-    val retrofitService : TriviaApiService by lazy { retrofit.create(TriviaApiService::class.java) }
-}
+//object TriviaApi {
+//    val retrofitService : TriviaApiService by lazy { retrofit.create(TriviaApiService::class.java) }
+//}
