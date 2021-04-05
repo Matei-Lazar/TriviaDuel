@@ -7,16 +7,9 @@ import java.util.*
 
 @Entity(tableName = "questions")
 data class QuestionEntity constructor(
-        @ColumnInfo(name = "category")
         val category: String,
-
-        @ColumnInfo(name = "type")
         val type: String,
-
-        @ColumnInfo(name = "difficulty")
         val difficulty: String,
-
-        @ColumnInfo(name = "question")
         val question: String,
 
         @ColumnInfo(name = "correct_answer")
