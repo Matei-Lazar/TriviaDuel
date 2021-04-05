@@ -8,7 +8,7 @@ interface TriviaApiService {
     @GET("api.php?amount=1&type=multiple")
     suspend fun getQuestion(): TriviaResponse
 
-    @GET("")
+    @GET("api.php?amount=50&type=multiple")
     suspend fun getAny50Questions(): TriviaResponse
 
     @GET("api_token.php?command=request")
