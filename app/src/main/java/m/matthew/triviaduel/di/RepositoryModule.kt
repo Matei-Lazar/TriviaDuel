@@ -1,6 +1,5 @@
 package m.matthew.triviaduel.di
 
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -12,9 +12,6 @@ interface QuestionDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertQuestion(questionEntity: QuestionEntity)
 
-//    @Insert(onConflict = OnConflictStrategy.REPLACE)
-//    suspend fun insertQuestions(questions: List<QuestionEntity>)
-
     @Query("SELECT * FROM questions")
     suspend fun getQuestions(): List<QuestionEntity>
 }

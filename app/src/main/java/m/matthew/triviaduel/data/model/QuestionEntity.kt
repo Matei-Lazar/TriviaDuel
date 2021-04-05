@@ -7,10 +7,6 @@ import java.util.*
 
 @Entity(tableName = "questions")
 data class QuestionEntity constructor(
-//        @PrimaryKey
-//        @ColumnInfo(name = "id")
-//        var id: String = UUID.randomUUID().toString(),
-
         @ColumnInfo(name = "category")
         val category: String,
 

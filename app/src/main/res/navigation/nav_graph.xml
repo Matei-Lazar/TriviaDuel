@@ -20,4 +20,14 @@
         android:name="m.matthew.triviaduel.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="m.matthew.triviaduel.ui.category.CategoryFragment"
+        android:label="category_fragment"
+        tools:layout="@layout/category_fragment" />
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="m.matthew.triviaduel.ui.game.GameFragment"
+        android:label="game_fragment"
+        tools:layout="@layout/game_fragment" />
 </navigation>
