@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
@@ -32,6 +33,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.viewModel = homeViewModel
         binding.lifecycleOwner = this
+
+        binding.playButton.setOnClickListener {
+            it.findNavController().navigate(R.id.action_homeFragment_to_categoryFragment)
+        }
+
         return binding.root
     }
 
