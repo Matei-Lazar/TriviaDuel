@@ -30,10 +30,19 @@
         android:id="@+id/categoryFragment"
         android:name="m.matthew.triviaduel.ui.category.CategoryFragment"
         android:label="category_fragment"
-        tools:layout="@layout/category_fragment" />
+        tools:layout="@layout/category_fragment" >
+        <action
+            android:id="@+id/action_categoryFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
     <fragment
         android:id="@+id/gameFragment"
         android:name="m.matthew.triviaduel.ui.game.GameFragment"
         android:label="game_fragment"
-        tools:layout="@layout/game_fragment" />
+        tools:layout="@layout/game_fragment" >
+        <argument
+            android:name="category"
+            app:argType="string"
+            android:defaultValue="General Knowledge" />
+    </fragment>
 </navigation>

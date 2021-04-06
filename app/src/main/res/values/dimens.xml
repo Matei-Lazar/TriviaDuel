@@ -2,9 +2,11 @@
 <resources>
     <dimen name="text_margin">20dp</dimen>
     <dimen name="text_padding">10dp</dimen>
-    <dimen name="text_padding_start">20dp</dimen>
-    <dimen name="text_padding_end">20dp</dimen>
-    <dimen name="text_padding_top">10dp</dimen>
-    <dimen name="text_padding_bottom">10dp</dimen>
+    <dimen name="text_padding_start">5dp</dimen>
+    <dimen name="text_padding_end">5dp</dimen>
+    <dimen name="text_padding_top">5dp</dimen>
+    <dimen name="text_padding_bottom">5dp</dimen>
     <dimen name="button_text_size">20sp</dimen>
+    <dimen name="category_width">180dp</dimen>
+    <dimen name="category_height">80dp</dimen>
 </resources>

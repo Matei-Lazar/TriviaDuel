@@ -9,7 +9,7 @@ interface QuestionDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertQuestion(questionEntity: QuestionEntity)
 
-    @Delete
+    @Query("DELETE FROM questions")
     suspend fun nukeQuestions()
 
     @Query("SELECT * FROM questions")

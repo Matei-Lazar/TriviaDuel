@@ -5,5 +5,26 @@
     <string name="logout_button_text">Logout</string>
     <string name="play_button_text">Play</string>
     <string name="general_knowledge">General Knowledge</string>
-
+    <string name="entertainment_books">Entertainment: Books</string>
+    <string name="entertainment_comics">Entertainment: Comics</string>
+    <string name="entertainment_film">Entertainment: Film</string>
+    <string name="entertainment_music">Entertainment: Music</string>
+    <string name="entertainment_musicals_theaters">Entertainment: Musicals &amp; Theatres</string>
+    <string name="entertainment_television">Entertainment: Television</string>
+    <string name="entertainment_games">Entertainment: Video Games</string>
+    <string name="entertainment_anime_manga">Entertainment: Japanese Anime &amp; Manga</string>
+    <string name="entertainment_cartoon_animations">Entertainment: Cartoon &amp; Animations</string>
+    <string name="science_nature">Science and Nature</string>
+    <string name="science_computers">Science: Computers</string>
+    <string name="science_mathematics">Science: Mathematics</string>
+    <string name="science_gadgets">Science: Gadgets</string>
+    <string name="mythology">Mythology</string>
+    <string name="sports">Sports</string>
+    <string name="geography">Geography</string>
+    <string name="history">History</string>
+    <string name="politics">Politics</string>
+    <string name="art">Art</string>
+    <string name="celebrities">Celebrities</string>
+    <string name="animals">Animals</string>
+    <string name="vehicles">Vehicles</string>
 </resources>
