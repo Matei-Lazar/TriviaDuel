@@ -9,4 +9,10 @@
     <dimen name="button_text_size">20sp</dimen>
     <dimen name="category_width">180dp</dimen>
     <dimen name="category_height">80dp</dimen>
+    <dimen name="question_height">160dp</dimen>
+    <dimen name="answer_height">80dp</dimen>
+    <dimen name="question_margin">20dp</dimen>
+    <dimen name="answer_margin">20dp</dimen>
+    <dimen name="submit_button_width">100dp</dimen>
+    <dimen name="submit_button_height">50dp</dimen>
 </resources>

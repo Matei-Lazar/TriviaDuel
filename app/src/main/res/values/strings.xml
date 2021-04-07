@@ -5,6 +5,7 @@
     <string name="logout_button_text">Logout</string>
     <string name="play_button_text">Play</string>
     <string name="general_knowledge">General Knowledge</string>
+    <string name="entertainment">Entertainment</string>
     <string name="entertainment_books">Entertainment: Books</string>
     <string name="entertainment_comics">Entertainment: Comics</string>
     <string name="entertainment_film">Entertainment: Film</string>
@@ -14,6 +15,7 @@
     <string name="entertainment_games">Entertainment: Video Games</string>
     <string name="entertainment_anime_manga">Entertainment: Japanese Anime &amp; Manga</string>
     <string name="entertainment_cartoon_animations">Entertainment: Cartoon &amp; Animations</string>
+    <string name="science">Science</string>
     <string name="science_nature">Science and Nature</string>
     <string name="science_computers">Science: Computers</string>
     <string name="science_mathematics">Science: Mathematics</string>

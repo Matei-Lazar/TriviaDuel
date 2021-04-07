@@ -30,10 +30,12 @@
         android:id="@+id/categoryFragment"
         android:name="m.matthew.triviaduel.ui.category.CategoryFragment"
         android:label="category_fragment"
-        tools:layout="@layout/category_fragment" >
+        tools:layout="@layout/fragment_category" >
         <action
             android:id="@+id/action_categoryFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"

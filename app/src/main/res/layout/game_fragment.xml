@@ -1,13 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".ui.game.GameFragment">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/question_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/question_height"
+            android:layout_margin="@dimen/question_margin"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/a_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/answer_height"
+            android:layout_margin="@dimen/answer_margin"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/question_text_view" />
+
+        <TextView
+            android:id="@+id/b_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/answer_height"
+            android:layout_margin="@dimen/answer_margin"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/a_text_view" />
+
+        <TextView
+            android:id="@+id/c_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/answer_height"
+            android:layout_margin="@dimen/answer_margin"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/b_text_view" />
+
+        <TextView
+            android:id="@+id/d_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/answer_height"
+            android:layout_margin="@dimen/answer_margin"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/c_text_view" />
+
+        <TextView
+            android:id="@+id/submit_button"
+            android:layout_width="@dimen/submit_button_width"
+            android:layout_height="@dimen/submit_button_height"
+            android:text="Submit"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/d_text_view" />
+
+        <TextView
+            android:id="@+id/next_button"
+            android:layout_width="@dimen/submit_button_width"
+            android:layout_height="@dimen/submit_button_height"
+            android:text="Next"
+            android:gravity="center"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/d_text_view" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

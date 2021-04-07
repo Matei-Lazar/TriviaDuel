@@ -8,17 +8,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import m.matthew.triviaduel.R
 import m.matthew.triviaduel.data.model.QuestionEntity
 import m.matthew.triviaduel.databinding.FragmentHomeBinding
 import m.matthew.triviaduel.login.LoginViewModel
+import m.matthew.triviaduel.ui.MainActivity
 import m.matthew.triviaduel.util.DataState
 
 @AndroidEntryPoint
@@ -33,9 +36,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.viewModel = homeViewModel
         binding.lifecycleOwner = this
+        val navBar = (activity as MainActivity).findViewById<BottomNavigationView>(R.id.bottom_nav)
+        navBar.isVisible = true
 
         binding.playButton.setOnClickListener {
             it.findNavController().navigate(R.id.action_homeFragment_to_categoryFragment)
+            navBar.isVisible = false
         }
 
         return binding.root
