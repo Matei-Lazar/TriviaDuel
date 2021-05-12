@@ -41,7 +41,7 @@
         android:id="@+id/gameFragment"
         android:name="m.matthew.triviaduel.ui.game.GameFragment"
         android:label="game_fragment"
-        tools:layout="@layout/game_fragment" >
+        tools:layout="@layout/fragment_game" >
         <argument
             android:name="category"
             app:argType="string"
